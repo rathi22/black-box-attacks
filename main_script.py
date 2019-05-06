@@ -133,11 +133,9 @@ if args['test']:
 	predict(model, data, device)
 
 if args['yolotest']:
-	os.system("cd ./obj-dec/PyTorch-YOLOv3")
 	os.system("python3 detect.py --image_folder ../../stitched_images")
 
 if args['crop']:
-	os.system("cd ./obj-dec/PyTorch-YOLOv3")
 	os.system("python3 make_crop_dataset.py --image_folder "+args['img_folder'])
 
 if args['stitch']:
