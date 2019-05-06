@@ -94,19 +94,19 @@ python3 main_script.py --test
 | ![input](./obj-dec/PyTorch-YOLOv3/working/000000017714.png)      | ![input](./obj-dec/PyTorch-YOLOv3/working/611_60.png)           |
 
 ## Additional Details
-#### * [dataset.py](dataset.py)
+#### [dataset.py](dataset.py)
 This file creates different datasets.
-#### * [main_script.py](main_script.py)
+#### [main_script.py](main_script.py)
 This file contains various options to run different steps in the project
-#### * [oracle.py](oracle.py)
+#### [oracle.py](oracle.py)
 This file gets output from the oracle for a given input
-#### * [predict.py](predict.py)
+#### [predict.py](predict.py)
 This gets predictions from the black box for inputs given
-#### * [model.py](model.py)
+#### [model.py](model.py)
 This creates model
-#### * [stitch_photos.py](stitch_photos)
+#### [stitch_photos.py](stitch_photos)
 This contains code to stitch the adversarial sample generated to original photo
-#### * [train_substitute.py](train_substitute.py):
+#### [train_substitute.py](train_substitute.py):
 This file implements the Substitute DNN training algorithm given in paper[1]. <br>
 For oracle *Õ*, a maximum number *max<sub>ρ</sub>* of substitute training epochs, a substitute architecture *F* and initial training set *S<sub>0</sub>*.
 <br>
@@ -127,11 +127,11 @@ For oracle *Õ*, a maximum number *max<sub>ρ</sub>* of substitute training epoc
 7:	**return** θ<sub>F</sub>
 <br><br>
 The function ```create_dataset()``` creates dataset out of the samples generated and ```augment_dataset()``` function augments it to the current dataset.
-#### * [train.py](train.py)
+#### [train.py](train.py)
 This file trains the model
-#### * [utilities.py](utilities.py)
+#### [utilities.py](utilities.py)
 This file contains helper functions 
-#### * [whitebox.py](whitebox.py)
+#### [whitebox.py](whitebox.py)
 This file creates adversarial samples based on the white box (substitute) model
 
 
