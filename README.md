@@ -27,7 +27,7 @@ libtiff
 1. Install the requirements
 2. Clone This directory
 ```
-git clone https://github.com/darth-c0d3r/black_box_attacks
+git clone https://github.com/rathi22/black-box-attacks.git
 ```
 3. Get [COCO dataset](http://images.cocodataset.org/zips/val2017.zip)
 4. Download weights for the pretrained model
