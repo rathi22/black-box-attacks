@@ -90,6 +90,10 @@ python3 main_script.py --test
 | Before            | After      |
 | -------------     |:-------------:|
 | ![input](./obj-dec/PyTorch-YOLOv3/working/000000017207.png)      | ![input](./obj-dec/PyTorch-YOLOv3/working/592_5.png)           |
+| -------------     |:-------------:|
+| ![input](./obj-dec/PyTorch-YOLOv3/working/000000018150.png)      | ![input](./obj-dec/PyTorch-YOLOv3/working/627_0.png)           |
+| -------------     |:-------------:|
+| ![input](./obj-dec/PyTorch-YOLOv3/working/000000017714.png)      | ![input](./obj-dec/PyTorch-YOLOv3/working/611_60.png)           |
 
 ## Additional Details
 #### * [dataset.py](dataset.py)
