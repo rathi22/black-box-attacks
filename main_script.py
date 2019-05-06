@@ -20,14 +20,11 @@ import os
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("--crop", help="Create crop dataset", dest='crop',default=False,action='store_true')
-parser.add_argument("--img_folder", help="image folder", dest='img_folder',action='store_true')
 parser.add_argument("--bb", help="Train Black box Initially", dest='bb',default=False,action='store_true')
 parser.add_argument("--sub", help="Train Substitute Model", dest='sub',default=False,action='store_true')
 parser.add_argument("--yolo", help="Train Substitute Model for Yolo", dest='yolo',default=False,action='store_true')
 parser.add_argument("--adv", help="Generate Adversarial Samples", dest='adv',default=False,action='store_true')
 parser.add_argument("--test", help="Test the model on Adversarial Samples", dest='test',default=False,action='store_true')
-parser.add_argument("--yolotest", help="Test the Model for Yolo", dest='yolotest',default=False,action='store_true')
 parser.add_argument("--stitch", help="Stitch adv images into original", dest='stitch',default=False,action='store_true')
 
 _a = parser.parse_args()
@@ -131,12 +128,6 @@ if args['test']:
 	
 	print("For", model_name[:-3], "model: ")
 	predict(model, data, device)
-
-if args['yolotest']:
-	os.system("python3 detect.py --image_folder ../../stitched_images")
-
-if args['crop']:
-	os.system("python3 make_crop_dataset.py --image_folder "+args['img_folder'])
 
 if args['stitch']:
 	stitch("adv_samples", "obj-dec/PyTorch-YOLOv3/img_logs.csv")
