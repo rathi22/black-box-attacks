@@ -88,8 +88,8 @@ python3 main_script.py --test
 
 ## Results
 <p align='float'>
-  <img src='./obj-dec/PyTorch-YOLOv3/working/000000017207.png' style="width: 300px;" />
-  <img src='./obj-dec/PyTorch-YOLOv3/working/592_5.png' style="width: 300px;" />
+  <img src='./obj-dec/PyTorch-YOLOv3/working/000000017207.png' style="width: 200px;" />
+  <img src='./obj-dec/PyTorch-YOLOv3/working/592_5.png' style="width: 200px;" />
 </p>
 
 ## Additional Details
