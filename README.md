@@ -40,7 +40,7 @@ cd ../../../
 * Create crop dataset from sample input data
 ```
 cd ./obj-dec/PyTorch-YOLOv3
-python3 main_script.py --crop --img_folder <path to image folder>
+python3 make_crop_dataset.py --image_folder <path to image folder>
 cd ../../
 ```
 * Create substitute model
@@ -61,7 +61,7 @@ You can see the images in ```stitched_images/``` directory
 * Test them with black box model
 ```
 cd ./obj-dec/PyTorch-YOLOv3
-python3 main_script.py --yolotest
+python3 detect.py --image_folder ../../stitched_images
 cd ../../
 ```
 You can see the output in ```obj-dec/PyTorch-YOLOv3/output/``` directory
