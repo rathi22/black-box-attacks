@@ -39,7 +39,9 @@ cd ../../../
 #### For attack on object detection
 * Create crop dataset from sample input data
 ```
+cd ./obj-dec/PyTorch-YOLOv3
 python3 main_script.py --crop --img_folder <path to image folder>
+cd ../../
 ```
 * Create substitute model
 ```
@@ -58,7 +60,9 @@ python3 main_script.py --stitch
 You can see the images in ```stitched_images/``` directory
 * Test them with black box model
 ```
+cd ./obj-dec/PyTorch-YOLOv3
 python3 main_script.py --yolotest
+cd ../../
 ```
 You can see the output in ```obj-dec/PyTorch-YOLOv3/output/``` directory
 #### For attack on MNIST dataset
