@@ -31,7 +31,16 @@ git clone https://github.com/darth-c0d3r/black_box_attacks
 ```
 3. Get [COCO dataset](http://images.cocodataset.org/zips/val2017.zip)
 4. Download weights for the pretrained model
+```
+cd ./obj-dec/PyTorch-YOLOv3/weights/
+bash download_weights.sh
+cd ../../../
+```
 #### For attack on object detection
+* Create crop dataset from sample input data
+```
+python3 main_script.py --crop --img_folder <path to image folder>
+```
 * Create substitute model
 ```
 python3 main_script.py --yolo
@@ -51,6 +60,7 @@ You can see the images in ```stitched_images/``` directory
 ```
 python3 main_script.py --yolotest
 ```
+You can see the output in ```obj-dec/PyTorch-YOLOv3/output/``` directory
 #### For attack on MNIST dataset
 ```
 cd black_box_attack_classification
@@ -77,7 +87,10 @@ python3 main_script.py --test
 ```
 
 ## Results
-
+<p align='float'>
+  <img src='./obj-dec/PyTorch-YOLOv3/000000017207.png' style="width: 300px;" />
+  <img src='./obj-dec/PyTorch-YOLOv3/592_5.png' style="width: 300px;" />
+</p>
 
 ## Additional Details
 #### * [dataset.py](dataset.py)

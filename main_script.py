@@ -21,7 +21,7 @@ import os
 parser = argparse.ArgumentParser()
 
 parser.add_argument("--crop", help="Create crop dataset", dest='crop',default=False,action='store_true')
-parser.add_argument("--img_folder", help="image folder", dest='img_folder',default=False,action='store_true')
+parser.add_argument("--img_folder", help="image folder", dest='img_folder',action='store_true')
 parser.add_argument("--bb", help="Train Black box Initially", dest='bb',default=False,action='store_true')
 parser.add_argument("--sub", help="Train Substitute Model", dest='sub',default=False,action='store_true')
 parser.add_argument("--yolo", help="Train Substitute Model for Yolo", dest='yolo',default=False,action='store_true')
