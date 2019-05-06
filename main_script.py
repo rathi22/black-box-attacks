@@ -14,11 +14,14 @@ from torch.autograd import Variable
 import torch.utils.data as TorchUtils
 import argparse
 import random
+import os
 
 # USAGE_STRING = """Arguments:\n(a) -i /path/to/input.bin\n(b) -t /path/to/target.bin\n(c) -ig /path/to/gradInput.bin""" 
 
 parser = argparse.ArgumentParser()
 
+parser.add_argument("--crop", help="Create crop dataset", dest='crop',default=False,action='store_true')
+parser.add_argument("--img_folder", help="image folder", dest='img_folder',default=False,action='store_true')
 parser.add_argument("--bb", help="Train Black box Initially", dest='bb',default=False,action='store_true')
 parser.add_argument("--sub", help="Train Substitute Model", dest='sub',default=False,action='store_true')
 parser.add_argument("--yolo", help="Train Substitute Model for Yolo", dest='yolo',default=False,action='store_true')
@@ -111,8 +114,8 @@ if args['yolo']:
 	utilities.save_model(model)
 
 if args['adv']:
-	# model_name = input("Substitute Model Name: ")
-	model_name = "sub_crop_no_r2_200.pt"
+	model_name = input("Substitute Model Name: ")
+	# model_name = "sub_crop_no_r2_200.pt"
 	target = 6 # int(input("Directed Label to misclassify: "))
 	num_samples = 20
 
@@ -130,9 +133,12 @@ if args['test']:
 	predict(model, data, device)
 
 if args['yolotest']:
-	data = get_Adv_Dataset()
-	print(data[0][0].shape)	
-	predict_obj(data, device)
+	os.system("cd ./obj-dec/PyTorch-YOLOv3")
+	os.system("python3 detect.py --image_folder ../../stitched_images")
+
+if args['crop']:
+	os.system("cd ./obj-dec/PyTorch-YOLOv3")
+	os.system("python3 make_crop_dataset.py --image_folder "+args['img_folder'])
 
 if args['stitch']:
 	stitch("adv_samples", "obj-dec/PyTorch-YOLOv3/img_logs.csv")

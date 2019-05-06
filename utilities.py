@@ -23,6 +23,8 @@ def get_device(cuda):
 
 def save_model(model):
 	folder = "saved_models/"
+	if folder not in os.listdir():
+		os.mkdir(folder)
 	files = os.listdir(folder)
 
 	while True:

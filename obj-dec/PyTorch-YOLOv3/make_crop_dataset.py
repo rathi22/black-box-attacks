@@ -96,7 +96,9 @@ if __name__ == "__main__":
     img_index = 0
     # Iterate through images and save plot of detections
 
-    # logfile = open("img_logs.csv", "w+")
+    logfile = open("img_logs.csv", "w+")
+    if "crop_dataset" not in os.listdir():
+        os.mkdir("crop_dataset")
 
     for img_i, (path, detections) in enumerate(zip(imgs, img_detections)):
 
@@ -130,13 +132,13 @@ if __name__ == "__main__":
                 # print(img.shape, x1, y1, box_w, box_h)
                 # print(type(patches))
 
-                # img_crop = img_pil.crop((int(x1.item())-5, int(y1.item())-5, int(x2.item())+5, int(y2.item())+5))
-                # name = "%d_%d.jpeg"%(img_index, int(cls_pred))
-                # img_crop.save("crop_dataset/%s"%(name))
-                # img_index += 1
+                img_crop = img_pil.crop((int(x1.item())-5, int(y1.item())-5, int(x2.item())+5, int(y2.item())+5))
+                name = "%d_%d.jpeg"%(img_index, int(cls_pred))
+                img_crop.save("crop_dataset/%s"%(name))
+                img_index += 1
 
-                # logfile.write("%s,%s,%d,%d,%d,%d,%d"%(path, name, int(x1.item())-5, int(y1.item())-5, 
-                #     int(x2.item())+5, int(y2.item())+5, int(cls_pred)))
+                logfile.write("%s,%s,%d,%d,%d,%d,%d"%(path, name, int(x1.item())-5, int(y1.item())-5, 
+                    int(x2.item())+5, int(y2.item())+5, int(cls_pred)))
 
 
                 # Add the bbox to the plot
@@ -159,4 +161,4 @@ if __name__ == "__main__":
         plt.savefig("output/%s.png"%(filename), bbox_inches="tight", pad_inches=0.0)
         plt.close()
 
-    # logfile.close()
+    logfile.close()
